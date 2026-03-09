@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mishika: System Governance Assignment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Strict Chart Container Constraints */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-zone {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .slide-zone:hover, .slide-zone.active {
+            background-color: #ecfdf5; /* emerald-50 */
+            border-color: #10b981; /* emerald-500 */
+            transform: scale(1.02);
+            z-index: 10;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-200 selection:text-emerald-900">
+
+    <!-- Chosen Palette: Institutional Slate & Governance Emerald (slate-900, emerald-600, emerald-50) -->
+    
+    <!-- Application Structure Plan: 
+         This SPA mirrors the high-velocity structure of Rolly's briefing to maintain lead-level standardization.
+         - Hero: Establishes Mishika's role as the "Technical Documentation Specialist" for System Integrity.
+         - Section 1 (Context): Re-frames the Admin role as the "Gatekeeper" of the system.
+         - Section 2 (Module Explorer): Interactive tabbed interface for Admin Center, Landing Page, and Verification Logic.
+         - Section 3 (Slide Blueprint): Interactive spatial mockup of a professional presentation slide.
+         - Section 4 (Evaluation): Polar Area chart for weighted criteria.
+    -->
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <span class="text-2xl">🛡️</span>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">AlumConnect <span class="text-emerald-600 font-medium">Briefing</span></span>
+                </div>
+                <div class="hidden md:flex space-x-6 text-sm font-medium text-slate-600">
+                    <a href="#context" class="hover:text-emerald-600 transition-colors">Context</a>
+                    <a href="#modules" class="hover:text-emerald-600 transition-colors">Module Scope</a>
+                    <a href="#blueprint" class="hover:text-emerald-600 transition-colors">Slide Blueprint</a>
+                    <a href="#evaluation" class="hover:text-emerald-600 transition-colors">Evaluation</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-slate-900 text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-block bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                Institutional Governance Task
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-tight">
+                System Integrity & Public Architecture
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Documenting the "Invisible Hand" that ensures AlumConnect remains a secure, verified, and high-trust portal.
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-slate-700/50 text-left max-w-3xl mx-auto">
+                <div>
+                    <div class="text-slate-400 text-xs uppercase tracking-wider mb-1">Project</div>
+                    <div class="font-semibold text-sm">AlumConnect</div>
+                </div>
+                <div>
+                    <div class="text-slate-400 text-xs uppercase tracking-wider mb-1">Assigned To</div>
+                    <div class="font-semibold text-sm flex items-center gap-2">👩‍💻 Mishika <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">Tech Doc Specialist</span></div>
+                </div>
+                <div>
+                    <div class="text-slate-400 text-xs uppercase tracking-wider mb-1">Supervisor</div>
+                    <div class="font-semibold text-sm">👨‍✈️Utkarsh</div>
+                </div>
+                <div>
+                    <div class="text-slate-400 text-xs uppercase tracking-wider mb-1">Date</div>
+                    <div class="font-semibold text-sm">March 2026</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <!-- Context Section -->
+        <section id="context" class="scroll-mt-24">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4 border-l-4 border-emerald-600 pl-4">1. Project Context & Objective</h2>
+                <p class="text-slate-600 mb-6 text-lg">
+                    While Rolly handles the "User Experience," your task is to document the <strong>System Integrity</strong>. You will explain how an Admin manages thousands of records and how the platform presents itself as a trusted IIPS-DAVV portal.
+                </p>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <p class="text-slate-700 leading-relaxed mb-6">
+                        The goal is to provide absolute technical clarity on how AlumConnect governs data. Your manuals will be integrated into <strong>Chapter 7 (Results & Snapshots)</strong> to prove that our project is enterprise-grade.
+                    </p>
+                    <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 rounded-r-xl">
+                        <h3 class="font-bold text-emerald-900 mb-2 flex items-center gap-2"><span>🛡️</span> The "Gatekeeper" Logic</h3>
+                        <p class="text-emerald-800 text-sm leading-relaxed">
+                            If the Admin fails, the system fills with fake profiles. Your manuals will teach the team how AlumConnect stays a <strong>"Verified-Only"</strong> network through manual and automated vetting.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module Scope Section -->
+        <section id="modules" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4 text-center">2. Scope of Work: The Administrative Decks</h2>
+            <p class="text-slate-600 mb-10 text-center max-w-2xl mx-auto">
+                You are required to create three distinct Google Slides presentations. Select a module below to explore the specific technical focus and highlights required for each governance manual.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Selectors -->
+                <div class="md:w-1/3 flex flex-col gap-3">
+                    <button onclick="selectModule('admin')" id="btn-admin" class="text-left px-6 py-5 rounded-xl border-2 transition-all duration-200 bg-white border-emerald-600 shadow-md transform scale-105">
+                        <div class="flex items-center gap-3 mb-1">
+                            <span class="text-2xl">🏛️</span>
+                            <span class="font-bold text-slate-900">Deck A: Admin Center</span>
+                        </div>
+                        <div class="text-sm text-emerald-600 ml-9">The Governance Hub</div>
+                    </button>
+                    <button onclick="selectModule('landing')" id="btn-landing" class="text-left px-6 py-5 rounded-xl border-2 transition-all duration-200 bg-white border-slate-200 hover:border-emerald-300 text-slate-600">
+                        <div class="flex items-center gap-3 mb-1">
+                            <span class="text-2xl">🌐</span>
+                            <span class="font-bold text-slate-900">Deck B: Public Landing</span>
+                        </div>
+                        <div class="text-sm text-slate-500 ml-9">The Front Door</div>
+                    </button>
+                    <button onclick="selectModule('verify')" id="btn-verify" class="text-left px-6 py-5 rounded-xl border-2 transition-all duration-200 bg-white border-slate-200 hover:border-emerald-300 text-slate-600">
+                        <div class="flex items-center gap-3 mb-1">
+                            <span class="text-2xl">🔑</span>
+                            <span class="font-bold text-slate-900">Deck C: Verification Logic</span>
+                        </div>
+                        <div class="text-sm text-slate-500 ml-9">The Security Loop</div>
+                    </button>
+                </div>
+
+                <!-- Content Display -->
+                <div class="md:w-2/3">
+                    <div id="module-content" class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 h-full flex flex-col justify-center fade-in min-h-[300px]">
+                        <!-- Dynamic Content -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blueprint Section -->
+        <section id="blueprint" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4 text-center">3. Required Slide Structure Blueprint</h2>
+            <p class="text-slate-600 mb-10 text-center max-w-2xl mx-auto">
+                Every slide must follow a strict layout to ensure academic consistency. Interact with the slide mockup below to view the requirements for each zone of the governance documentation.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                
+                <!-- Interactive Slide Mockup -->
+                <div class="bg-slate-200 p-6 rounded-xl shadow-inner relative">
+                    <div class="text-center text-xs text-slate-400 font-bold uppercase tracking-widest mb-4">Mishika's Master Slide Template</div>
+                    <div class="bg-white aspect-[16/9] rounded-lg shadow-md border border-slate-300 p-4 flex flex-col gap-3">
+                        <!-- Zone 1: Title -->
+                        <div onclick="selectBlueprint(1)" id="zone-1" class="slide-zone w-full h-12 border-2 border-dashed border-slate-300 rounded bg-slate-50 flex items-center justify-center text-slate-500 font-semibold active">
+                            1. Logical Component Title
+                        </div>
+                        
+                        <div class="flex-1 flex gap-3">
+                            <!-- Zone 2: Snapshot -->
+                            <div onclick="selectBlueprint(2)" id="zone-2" class="slide-zone w-1/2 h-full border-2 border-dashed border-slate-300 rounded bg-slate-50 flex items-center justify-center text-slate-500 font-semibold">
+                                2. Snapshot Placeholder
+                            </div>
+                            <!-- Zones 3 & 4 -->
+                            <div class="w-1/2 h-full flex flex-col gap-3">
+                                <div onclick="selectBlueprint(3)" id="zone-3" class="slide-zone flex-1 border-2 border-dashed border-slate-300 rounded bg-slate-50 flex items-center justify-center text-slate-500 font-semibold">
+                                    3. Functional Description
+                                </div>
+                                <div onclick="selectBlueprint(4)" id="zone-4" class="slide-zone flex-[2] border-2 border-dashed border-slate-300 rounded bg-slate-50 flex flex-col items-center justify-center text-slate-500 font-semibold p-2 text-center text-sm">
+                                    4. System Logic<br><span class="text-xs font-normal">(The Governance "Brain")</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Zone 5: Institutional Value -->
+                        <div onclick="selectBlueprint(5)" id="zone-5" class="slide-zone w-full h-16 border-2 border-dashed border-slate-300 rounded bg-slate-50 flex items-center justify-center text-slate-500 font-semibold">
+                            5. Institutional Value
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Requirement Details -->
+                <div id="blueprint-details" class="bg-white p-8 rounded-2xl shadow-sm border border-emerald-200 min-h-[350px]">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Evaluation Section -->
+        <section id="evaluation" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4 text-center">4. Evaluation & Quality Triad</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-center font-bold text-slate-800 mb-2">Governance Scoring</h3>
+                    <div class="chart-container">
+                        <canvas id="mishikaChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex gap-4 items-start">
+                        <div class="text-2xl mt-1">🛡️</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">Security Accuracy</h4>
+                            <p class="text-sm text-slate-600">Do you correctly explain the verification "Accept/Reject" logic and its database impact?</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="text-2xl mt-1">📊</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">Analytical Insight</h4>
+                            <p class="text-sm text-slate-600">Can you clearly document how the Admin tracks college-wide professional growth?</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="text-2xl mt-1">🏛️</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800">Institutional Tone</h4>
+                            <p class="text-sm text-slate-600">Does your Public Landing manual reflect the high standard of IIPS-DAVV?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 mt-12 border-t-4 border-emerald-600">
+        <div class="max-w-4xl mx-auto text-center space-y-4">
+            <h4 class="text-white font-bold text-lg">Lead's Final Instruction</h4>
+            <p class="italic max-w-2xl mx-auto leading-relaxed text-slate-300">
+                "Mishika, while Rolly builds the map, you are documenting the foundations. Your work ensures that AlumConnect isn't just an app, but a trusted institutional asset."
+            </p>
+            <div class="pt-8 text-xs font-mono tracking-widest uppercase">
+                End of Mishika Assignment Briefing
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const moduleData = {
+            admin: {
+                title: 'Deck A: Admin Center',
+                icon: '🏛️',
+                subtitle: 'The Governance Hub',
+                focus: 'How the institute manages verified users, monitors system health, and handles high-level moderation.',
+                highlights: [
+                    'Verification Queue (Claims)',
+                    'Global Telemetry Dashboard',
+                    'User Audit & Moderation Logs',
+                    'Departmental Data Control'
+                ]
+            },
+            landing: {
+                title: 'Deck B: Public Landing',
+                icon: '🌐',
+                subtitle: 'The Front Door',
+                focus: 'Documenting the first impression: How AlumConnect markets its career value to the legacy alumni.',
+                highlights: [
+                    'Hero Section (The Hook)',
+                    'Live Statistics Counter',
+                    'Claim Legacy CTA Workflow',
+                    'SEO & Brand Presentation'
+                ]
+            },
+            verify: {
+                title: 'Deck C: Verification Logic',
+                icon: '🔑',
+                subtitle: 'The Security Loop',
+                focus: 'The step-by-step logic of vetting an alumni claim from submission to database update.',
+                highlights: [
+                    'Claim Form Data Mapping',
+                    'Document Preview Engine',
+                    'Approval/Rejection Logic',
+                    'Credentialing Workflow'
+                ]
+            }
+        };
+
+        const blueprintData = {
+            1: {
+                label: "1. Logical Component Title",
+                description: "Use technical governance terms like 'Verification Queue', 'Claims Pipeline', or 'Data Telemetry'."
+            },
+            2: {
+                label: "2. Snapshot Placeholder",
+                description: "Dedicated space for inserting the high-quality Admin or Public UI screenshot."
+            },
+            3: {
+                label: "3. Functional Description",
+                description: "Explain the purpose of the screen from an administrator's perspective in 2-3 sentences."
+            },
+            4: {
+                label: "4. System Logic (The Brain)",
+                description: "<strong>CRITICAL:</strong> Explain the backend change. <br><em>e.g., 'Status: Pending' flips to 'Status: Verified' in MongoDB upon Admin click.</em>"
+            },
+            5: {
+                label: "5. Institutional Value",
+                description: "The 'Security Win'. Explain how this feature specifically prevents spam, fake accounts, or data decay."
+            }
+        };
+
+        function selectModule(id) {
+            // Update Buttons
+            ['admin', 'landing', 'verify'].forEach(m => {
+                const btn = document.getElementById(`btn-${m}`);
+                if (!btn) return;
+                const text = btn.querySelector('.text-sm');
+                if (m === id) {
+                    btn.className = "text-left px-6 py-5 rounded-xl border-2 transition-all duration-200 bg-white border-emerald-600 shadow-md transform scale-105";
+                    if(text) { text.classList.remove('text-slate-500'); text.classList.add('text-emerald-600'); }
+                } else {
+                    btn.className = "text-left px-6 py-5 rounded-xl border-2 transition-all duration-200 bg-white border-slate-200 hover:border-emerald-300 text-slate-600";
+                    if(text) { text.classList.remove('text-emerald-600'); text.classList.add('text-slate-500'); }
+                }
+            });
+
+            // Update Content
+            const data = moduleData[id];
+            const content = document.getElementById('module-content');
+            content.classList.remove('fade-in'); void content.offsetWidth; content.classList.add('fade-in');
+
+            content.innerHTML = `
+                <div class="flex items-center gap-4 mb-6 pb-6 border-b border-slate-100">
+                    <div class="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center text-3xl border border-emerald-100 shadow-inner">
+                        ${data.icon}
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-900">${data.title}</h3>
+                        <p class="text-emerald-600 font-medium">${data.subtitle}</p>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Technical Focus</h4>
+                    <p class="text-slate-700 text-lg leading-relaxed bg-slate-50 p-4 rounded-lg border border-slate-100">${data.focus}</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Key Highlights</h4>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        ${data.highlights.map(h => `<li class="flex items-center gap-2 text-slate-700 font-medium"><span class="text-emerald-500 font-bold">✓</span> ${h}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        function selectBlueprint(id) {
+            for(let i=1; i<=5; i++) {
+                const z = document.getElementById(`zone-${i}`);
+                if(i === id) {
+                    z.classList.add('active', 'border-emerald-600', 'bg-emerald-50', 'text-emerald-800');
+                    z.classList.remove('border-slate-300', 'bg-slate-50', 'text-slate-500');
+                } else {
+                    z.classList.remove('active', 'border-emerald-600', 'bg-emerald-50', 'text-emerald-800');
+                    z.classList.add('border-slate-300', 'bg-slate-50', 'text-slate-500');
+                }
+            }
+
+            const data = blueprintData[id];
+            const details = document.getElementById('blueprint-details');
+            details.classList.remove('fade-in'); void details.offsetWidth; details.classList.add('fade-in');
+
+            details.innerHTML = `
+                <div class="h-full flex flex-col justify-center">
+                    <div class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold mb-4 w-max">Zone Rule ${id}/5</div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">${data.label}</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed border-l-4 border-emerald-500 pl-4 bg-slate-50 py-3 pr-3">${data.description}</p>
+                </div>
+            `;
+        }
+
+        window.onload = () => {
+            selectModule('admin');
+            selectBlueprint(1);
+            const ctx = document.getElementById('mishikaChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'polarArea',
+                data: {
+                    labels: ['Security', 'Analytics', 'Branding'],
+                    datasets: [{
+                        data: [100, 100, 100],
+                        backgroundColor: ['rgba(16, 185, 129, 0.6)', 'rgba(59, 130, 246, 0.6)', 'rgba(71, 85, 105, 0.6)']
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } },
+                    scales: { r: { ticks: { display: false }, grid: { color: 'rgba(0,0,0,0.05)' } } }
+                }
+            });
+        };
+    </script>
+</body>
+</html>
